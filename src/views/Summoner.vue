@@ -3,7 +3,7 @@
     <h1>Summoner Page : {{ name }}</h1>
     <div class>
         <div class="icon"><img v-bind:src="icon" /></div>
-        <div> {{ level }} </div>
+        <div class="level"> {{ level }} </div>
     </div>
   </div>
 </template>
