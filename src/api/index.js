@@ -5,7 +5,7 @@ dotenv.config();
 function getSummorByName(userName) {
     const url = '/api/summoner/' + userName; 
     
-    return axios.post(url)
+    return axios.get(url)
     .then((res) => {
         return res.data;
     })
@@ -17,4 +17,19 @@ function getSummorByName(userName) {
     }); 
 }
 
-export { getSummorByName }; 
+function getMatchesByName(accountID) {
+    const url = '/api/matches/' + accountID; 
+    
+    return axios.get(url)
+    .then((res) => {
+        return res.data;
+    })
+    .catch(() => {
+        return {
+            result : "err",
+            msg : "서버와의 연결에 실패하였습니다. 잠시 후 다시 시도해주세요."
+        };
+    }); 
+}
+
+export { getSummorByName, getMatchesByName }; 
